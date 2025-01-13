@@ -1,0 +1,45 @@
+.hamburgermenu__button {
+    width: 60px;
+    height: 60px;
+}
+.hamburgermenu {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: #1E1E1E;
+    padding: 24px 24px 0px 24px;
+}
+.hamburgermenu__content {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hamburgermenu__options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.hamburgermenu__options > .options__item:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.hamburgermenu__registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hamburgermenu__registration > a:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+.hamburgermenu__close {
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+}

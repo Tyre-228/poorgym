@@ -1,0 +1,26 @@
+.header {
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo__image {
+    width: 80px;
+    height: 80px;
+}
+.header__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+.header__options > .options__item:not(:last-of-type) {
+    margin-right: calc(0.5rem + 2vw);
+}
+.header__registration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__registration > a:not(:last-of-type) {
+    margin-right: calc(0.5rem + 2vw);
+}

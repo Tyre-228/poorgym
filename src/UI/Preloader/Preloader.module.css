@@ -1,0 +1,56 @@
+.logo__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.logo__image {
+    width: 300px;
+    height: 300px;
+}
+.logo__image_appear {
+    animation-name: logo-appear;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+.logo__image_disappear {
+    animation-name: logo-appear;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+}
+.logo__image_idle {
+    animation-name: logo-idle;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes logo-appear {
+    0% {
+        scale: 0;
+        transform: rotate(0);
+    }
+    100% {
+        scale: 1;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes logo-idle {
+    0% {
+        transform: rotate(0);
+        scale: 1;
+    }
+    50% {
+        transform: rotate(180deg);
+        scale: 0.7;
+    }
+    100% {
+        transform: rotate(360deg);
+        scale: 1;
+    }
+}

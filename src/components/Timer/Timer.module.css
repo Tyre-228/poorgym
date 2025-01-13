@@ -1,0 +1,27 @@
+.timer {
+  
+}
+.circleTimer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius:50%;
+}
+.innerCircle {
+  width: 160px;
+  height: 160px;
+  background-color: #1E1E1E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
