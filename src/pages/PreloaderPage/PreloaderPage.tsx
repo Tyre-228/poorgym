@@ -1,6 +1,7 @@
+import React from "react"
 import Preloader from '../../UI/Preloader/Preloader';
 
-function PreloaderPage() {
+const PreloaderPage: React.FC = () => {
   return (
     <div className='Main'>
       <Preloader/>

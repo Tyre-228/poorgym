@@ -1,14 +1,15 @@
-import styles from "./TimerPage.module.css"
+import React from "react"
+import styles from "./TimerPage.module.scss"
 import Timer from "../../components/Timer/Timer"
 
 
-function TimerPage() {
+const TimerPage: React.FC = () => {
     return (
         <div className={styles.timerpage}>
             <h1 className={styles.timerpage__title}>Timer</h1>
-            <eiv className={styles.timerpage__container}>
+            <div className={styles.timerpage__container}>
                 <Timer />
-            </eiv>
+            </div>
         </div>
     )
 }

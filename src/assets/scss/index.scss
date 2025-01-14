@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -24,14 +26,14 @@ code {
 /*---cleaning styles---*/
 * {
   font-size: 24px;
-  color: white;
+  color: $secondary-color;
 }
 button {
   box-shadow: none;
   border: none;
 }
 body {
-  background-color: #1E1E1E;
+  background-color: $tertiary-color;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,24 +42,22 @@ body {
   text-align: center;
 }
 p {
-  color: #B0B0B0;
+  color: $secondary-color;
 }
 .button {
-  background-color: #008780;
+  background-color: $primary-color;
   padding: 6px 12px;
   border-radius: 5px;
   font-size: 24px;
-  color: white;
+  color: $secondary-color;
   font-size: 24px;
   transition: 100ms all;
 }
 .button:hover {
   transition: 100ms all;
-  background-color: #017973;
+  background-color: $primary-color;
 }
 a {
-  color: white;
+  color: $secondary-color;
   text-decoration: none;
 }
-
-

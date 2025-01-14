@@ -1,3 +1,5 @@
+@use "../../assets/scss/variables.scss" as *;
+
 .timer {
   
 }
@@ -14,7 +16,7 @@
 .innerCircle {
   width: 160px;
   height: 160px;
-  background-color: #1E1E1E;
+  background-color: $tertiary-color;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -23,5 +25,5 @@
 .time {
   font-size: 2rem;
   font-weight: bold;
-  color: white;
+  color: $secondary-color;
 }

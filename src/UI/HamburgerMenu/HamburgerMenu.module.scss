@@ -1,3 +1,5 @@
+@use "../../assets/scss/variables.scss" as *;
+
 .hamburgermenu__button {
     width: 60px;
     height: 60px;
@@ -10,7 +12,7 @@
     height: 100vh;
     left: 0;
     top: 0;
-    background-color: #1E1E1E;
+    background-color: $tertiary-color;
     padding: 24px 24px 0px 24px;
 }
 .hamburgermenu__content {

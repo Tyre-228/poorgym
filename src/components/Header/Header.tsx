@@ -1,10 +1,11 @@
+import React from "react"
 import { useState } from "react"
-import styles from "./Header.module.css"
+import styles from "./Header.module.scss"
 import logo from "../../assets/images/logo.svg"
 import HamburgerMenu from "../../UI/HamburgerMenu/HamburgerMenu"
 
-function Header() {
-  const [hideMenu, setHideMenu] = useState(window.innerWidth < 720 ? true : false)
+const Header: React.FC = () => {
+  const [hideMenu, setHideMenu] = useState<boolean>(window.innerWidth < 720 ? true : false)
 
   window.addEventListener("resize", () => {
     if(window.innerWidth < 720) {

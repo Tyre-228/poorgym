@@ -1,11 +1,12 @@
+import React from "react"
 import { useState } from "react"
-import styles from "./HamburgerMenu.module.css"
+import styles from "./HamburgerMenu.module.scss"
 import HamburgerMenuImage from "../../assets/images/hamburger-menu.svg"
 import closeImage from "../../assets/images/close.svg"
 
 
-function HamburgerMenu(props) {
-    const [showMenu, setShowMenu] = useState(false)
+const HamburgerMenu: React.FC = (props) => {
+    const [showMenu, setShowMenu] = useState<boolean>(false)
 
     return (
         <>

@@ -1,7 +1,8 @@
-import styles from "./HomePage.module.css"
+import React from "react"
+import styles from "./HomePage.module.scss"
 import Header from "../../components/Header/Header"
 
-function HomePage() {
+const HomePage: React.FC = () => {
     return (
         <div className={styles.home__container}>
             <Header />

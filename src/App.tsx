@@ -1,10 +1,10 @@
+import React from "react"
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router"
-import { useState, useEffect } from 'react';
 import PreloaderPage from "./pages/PreloaderPage/PreloaderPage"
-import HomePage from "./pages//HomePage/HomePage"
+import HomePage from "./pages/HomePage/HomePage"
 import TimerPage from "./pages/TimerPage/TimerPage";
 
-function App() {
+const App: React.FC = () => {
   // const [data, setData] = useState("")
   
   // useEffect(() => {

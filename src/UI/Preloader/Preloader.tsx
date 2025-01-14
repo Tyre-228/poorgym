@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
-import styles from "./Preloader.module.css"
+import React from "react"
+import { useState } from 'react'
+import styles from "./Preloader.module.scss"
 import logo from "../../assets/images/logo.svg"
 
-function Preloader() {
-  const [imageClass, setImageClass] = useState(`${styles.logo__image} ${styles.logo__image_appear}`)
-  const [isReady, setIsReady] = useState(false)
+const Preloader: React.FC = () => {
+  const [imageClass, setImageClass] = useState<string>(`${styles.logo__image} ${styles.logo__image_appear}`)
+  const [isReady, setIsReady] = useState<boolean>(false)
 
   setTimeout(() => {
     setImageClass(`${styles.logo__image} ${styles.logo__image_idle}`)
