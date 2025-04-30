@@ -1,9 +1,11 @@
 @use "./variables.scss";
 
+
 * {
     margin: 0;
     padding: 0;
     font-family: "Lato", sans-serif;
+    color: var(--text-color);
 }
 li, ul, ol {
     list-style: none;
@@ -12,4 +14,48 @@ a {
     text-decoration: none;
     color: black;
     font-weight: 400;
+}
+button {
+    background-color: transparent;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+input {
+    background-color: var(--tertiary-color);
+    border: none;
+    padding: 7px 14px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+input::placeholder {
+    font-weight: 600;
+    color: var(--border-color);
+}
+input:focus {
+    outline: none;
+}
+body {
+    background-color: var(--secondary-color);
+    padding: 36px;
+}
+
+@media (max-width: 680px) {
+    body {
+        padding: 4%;
+    }
+}
+
+.primaryButton {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+.secondaryButton {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+}
+.secondaryButton:hover {
+    background-color: var(--primary-color);
 }

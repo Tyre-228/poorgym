@@ -1,0 +1,26 @@
+.loginPage {
+    width: 100%;
+}
+.loginContent {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 140px;
+
+}
+.title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 42px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+}
+form input:not(:last-of-type) {
+    margin-bottom: 34px;
+}
+form input:last-of-type {
+    margin-bottom: 48px;
+}

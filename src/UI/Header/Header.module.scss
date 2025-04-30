@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    color: var(--primary-color);
+    font-weight: 900;
+    font-size: 48px;
+}
+.authentication button {
+    padding: 12px 24px;
+    width: 120px;
+}
+.authentication > *:not(:last-of-type) {
+    margin-right: 32px;
+}   
