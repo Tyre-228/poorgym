@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "prod": "npx tsx index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tyre-228/poorgym.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tyre-228/poorgym/issues"
+  },
+  "homepage": "https://github.com/Tyre-228/poorgym#readme",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "jest": "^29.7.0",
+    "nodemailer": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "pg": "^8.15.6",
+    "redis": "^5.0.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "zod": "^3.24.4"
+  }
+}
