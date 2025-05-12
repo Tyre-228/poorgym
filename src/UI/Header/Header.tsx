@@ -9,7 +9,7 @@ const Header = () => {
                 <NavLink to="/login" end>
                     <button className="primaryButton">Login</button>
                 </NavLink>
-                <NavLink to="/register" end>
+                <NavLink to="/registration/goalType" end>
                     <button className="primaryButton">Sign up</button>
                 </NavLink>
             </div>

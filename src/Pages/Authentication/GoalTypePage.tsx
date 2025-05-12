@@ -1,0 +1,33 @@
+import "../../assets/scss/style.scss"
+import "../../assets/scss/forms.scss"
+import GoBackButton from "../../Contexts/GoBackButton/GoBackButton"
+
+const GoalTypePage = () => {
+    return (
+        <div className="page">
+            <div className="goBack">
+                <GoBackButton/>
+            </div>
+            <div className="content">
+                <h1 className="title">Goal type</h1>
+                <form action="POST" method="">
+                    <div className="field">
+                        <input className="choice" type="radio" name="choice" id="choice1" value="weight loss" required />
+                        <label htmlFor="choice1">Weight loss</label>
+                    </div>
+                    <div className="field">
+                        <input className="choice" type="radio" name="choice" id="choice2" value="Muscle growth" />
+                        <label htmlFor="choice2">Muscle growth</label>
+                    </div>
+                    <div className="field">
+                        <input className="choice" type="radio" name="choice" id="choice3" value="healthy lifestyle" />
+                        <label htmlFor="choice3">Healthy lifestyle</label>
+                    </div>
+                    <button className="submit primaryButton">Submit</button>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default GoalTypePage
