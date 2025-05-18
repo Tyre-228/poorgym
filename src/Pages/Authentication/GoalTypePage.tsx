@@ -1,8 +1,13 @@
 import "../../assets/scss/style.scss"
 import "../../assets/scss/forms.scss"
-import GoBackButton from "../../Contexts/GoBackButton/GoBackButton"
+import GoBackButton from "../../UI/GoBackButton/GoBackButton"
+import { saveAnswer } from "../../helpers"
+import { useNavigate } from "react-router"
 
-const GoalTypePage = () => {
+
+const GoalTypePage = () => {    
+    const navigate = useNavigate()
+
     return (
         <div className="page">
             <div className="goBack">
@@ -10,7 +15,14 @@ const GoalTypePage = () => {
             </div>
             <div className="content">
                 <h1 className="title">Goal type</h1>
-                <form action="POST" method="">
+                <form action="POST" method="" onSubmit={() => {
+                    event?.preventDefault()
+                    const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
+                    const data = { data: choice }
+                    
+                    saveAnswer(data, 1)
+                    navigate("/registration/goalDescription")
+                }}>
                     <div className="field">
                         <input className="choice" type="radio" name="choice" id="choice1" value="weight loss" required />
                         <label htmlFor="choice1">Weight loss</label>

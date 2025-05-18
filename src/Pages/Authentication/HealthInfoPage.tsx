@@ -1,8 +1,12 @@
 import "../../assets/scss/style.scss"
 import "../../assets/scss/forms.scss"
-import GoBackButton from "../../Contexts/GoBackButton/GoBackButton"
+import GoBackButton from "../../UI/GoBackButton/GoBackButton"
+import { saveAnswer } from "../../helpers"
+import { useNavigate } from "react-router"
 
 const HealthInfoPage = () => {
+    const navigate = useNavigate()
+
     return (
         <div className="page">
             <div className="goBack">
@@ -10,17 +14,28 @@ const HealthInfoPage = () => {
             </div>
             <div className="content">
                 <h1 className="title">Health</h1>
-                <form action="POST">
-                    <select name="gender">
+                <form action="POST" onSubmit={() => {
+                    event?.preventDefault()
+                    const data = { 
+                        gender: (document.getElementById("gender") as HTMLInputElement).value,
+                        measurementUnits: (document.getElementById("measurementUnits") as HTMLInputElement).value,
+                        weight: (document.getElementById("weight") as HTMLInputElement).value,
+                        height: (document.getElementById("height") as HTMLInputElement).value,
+                     }
+
+                    saveAnswer(data, 4)
+                    navigate("/registration/theory")
+                }}>
+                    <select name="gender" id="gender">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                    <select name="measurement-units">
+                    <select name="measurement-units" id="measurementUnits">
                         <option value="metric">Metric</option>
                         <option value="imperial">Imperial</option>
                     </select>
-                    <input type="text" placeholder="Weight" />
-                    <input type="text" placeholder="Height" />
+                    <input type="number" placeholder="Weight" id="weight" required />
+                    <input type="number" placeholder="Height" id="height" required />
                     <button className="submit primaryButton">Submit</button>
                 </form>
             </div>

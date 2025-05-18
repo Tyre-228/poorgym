@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 import "../../assets/scss/style.scss"
 import "../../assets/scss/forms.scss"
-import GoBackButton from "../../Contexts/GoBackButton/GoBackButton"
+import GoBackButton from "../../UI/GoBackButton/GoBackButton"
 
 const LoginPage = () => {
     const schema = z.object({
