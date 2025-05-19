@@ -19,7 +19,7 @@ const TheorySettingsPage = () => {
                     const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
                     const data = { data: choice }
 
-                    saveAnswer(data, 4)
+                    saveAnswer(data, 5)
                     navigate("/registration/injuries")
                 }}>
                     <div className="field">

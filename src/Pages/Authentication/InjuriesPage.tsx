@@ -19,7 +19,7 @@ const InjuriesPage = () => {
                     const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
                     const data = { data: choice }
 
-                    saveAnswer(data, 5)
+                    saveAnswer(data, 6)
                     navigate("/register")
                 }}>
                     <div className="field">

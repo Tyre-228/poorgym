@@ -9,7 +9,7 @@ const Homepage = () => {
             <Header/>
             <div className={styles.homepageContent}>
                 <h1 className={styles.title}>Start working out with PoorGym</h1>
-                <NavLink to="/register" end>
+                <NavLink to="/registration/goalType" end>
                     <button className={styles.startButton + "  primaryButton"}>Start</button>
                 </NavLink>
             </div>
