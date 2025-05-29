@@ -1,0 +1,49 @@
+.content {
+    border-radius: 25px;
+    padding: 24px;
+    max-width: 1400px;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+.workoutList {
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 52px;
+}
+.workoutList > *:not(:last-of-type) {
+    margin-bottom: 24px;
+}
+.workoutContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border: 3px solid var(--border-color);
+    border-radius: 15px;
+}
+.workoutTitle {
+    color: var(--primary-color);
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.workoutInfo > p {
+    font-size: 24px;
+}
+.workoutInfo > p:not(:last-of-type) {
+    margin-bottom: 6px;
+}
+.workoutInteraction {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.createWorkoutButton {
+    display: block;
+    width: fit-content;
+    padding: 12px;
+    margin-bottom: 152px;
+}

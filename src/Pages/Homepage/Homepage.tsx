@@ -4,7 +4,7 @@ import styles from "./Homepage.module.scss"
 
 const Homepage = () => {
     return (
-        <div className={styles.homepage}>
+        <div className="page">
             {/* <Popup/> */}
             <Header/>
             <div className={styles.homepageContent}>

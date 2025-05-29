@@ -1,0 +1,82 @@
+.sideBar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1D1C1C;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sideBarOptions {
+    display: flex;
+    justify-content: center;
+}
+.sideBarOptions > .sideBarOption:not(:last-of-type) {
+    margin-right: 24px;
+}
+.sideBarOption {
+    border: 3px solid var(--secondary-color);
+    background-color: var(--tertiary-color);
+    width: 70px;
+    height: 70px; 
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sideBarOption a {
+    width: 100%;
+    height: 100%;
+}
+.sideBarOption button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sideBarOption:nth-of-type(1) button {
+    background-image: url("../../assets/images/Theory Page.svg");
+}
+.sideBarOption:nth-of-type(2) button {
+    background-image: url("../../assets/images/Workout History Page.svg");
+}
+.sideBarOption:nth-of-type(3) button {
+    background-image: url("../../assets/images/Workout Planner Page.svg");
+}
+.sideBarOption:nth-of-type(4) button {
+    background-image: url("../../assets/images/Exercises Page.svg");
+}
+.sideBarOption:nth-of-type(5) button {
+    background-image: url("../../assets/images/Account\ Page.svg");
+}
+
+.sideBarOption:hover:nth-of-type(2) button, .sideBarOption:nth-of-type(1).current button {
+    background-image: url("../../assets/images/Theory Page\ Hover.svg");
+}
+.sideBarOption:hover:nth-of-type(2) button, .sideBarOption:nth-of-type(2).current button {
+    background-image: url("../../assets/images/Workout History Page\ Hover.svg");
+}
+.sideBarOption:hover:nth-of-type(3) button, .sideBarOption:nth-of-type(3).current button {
+    background-image: url("../../assets/images/Workout Planner Page\ Hover.svg");
+}
+.sideBarOption:hover:nth-of-type(4) button, .sideBarOption:nth-of-type(4).current button {
+    background-image: url("../../assets/images/Exercises Page\ Hover.svg");
+}
+.sideBarOption:hover:nth-of-type(5) button, .sideBarOption:nth-of-type(5).current button {
+    background-image: url("../../assets/images/Account\ Page\ Hover.svg");
+}
+
+// .sideBarOption:hover img {
+//     background-image: url("../../assets/images/Theory Page.svg");
+//     color: red;
+//     background-color: red;
+//     fill: red;
+// }   
+// .sideBarOption .current {
+//     background-color: #fff;
+//     color: red;
+// }   

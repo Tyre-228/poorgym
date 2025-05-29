@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import "../../assets/scss/style.scss"
 import "../../assets/scss/forms.scss"
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
+import axios from "axios";
 
 const LoginPage = () => {
     const schema = z.object({
@@ -30,7 +31,10 @@ const LoginPage = () => {
 
     const onSubmit = async (data: Schema) => {
         console.log("data sent")
-        console.log(data);
+        axios.post("https://poorgym.onrender.com/login", data).then(res => {
+            console.log(res.status)
+            console.log(res.data)
+        })
     };
     return (
         <div className="page">

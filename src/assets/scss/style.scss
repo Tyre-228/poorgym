@@ -39,29 +39,41 @@ input:focus {
 }
 body {
     background-color: var(--secondary-color);
-    padding: 36px;
-}
-
-@media (max-width: 680px) {
-    body {
-        padding: 4%;
-    }
 }
 
 .primaryButton {
     background-color: var(--primary-color);
     border-radius: 10px;
+    transition: 200ms all;
+    padding: 8px;
+    width: 140px;
+    font-size: 24px;
+}
+.primaryButton:hover {
+    background-color: var(--primary-shaded-color);
+    transition: 200ms all;
 }
 .secondaryButton {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     border-radius: 10px;
+    padding: 8px;
+    width: 140px;
+    font-size: 24px;
 }
 .secondaryButton:hover {
-    background-color: var(--primary-color);
+    background-color: var(--primary-shaded-color);
+    border-color: var(--primary-shaded-color);
 }
 .page {
-    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: 36px;
+}
+@media (max-width: 680px) {
+    .page {
+        padding: 4%;
+    }
 }
 .error {
     color: var(--primary-color);

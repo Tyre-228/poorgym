@@ -17,8 +17,9 @@ const GoalDescriptionPage = () => {
                 <h1 className="title">Tell us about your goal</h1>
                 <form action="POST" onSubmit={() => {
                     event?.preventDefault()
-                    const data = { data: document.querySelector("textarea")?.value }
-                    saveAnswer(data, 2)
+                    const data = document.querySelector("textarea")?.value as string
+
+                    saveAnswer("goalDescription", data)
                     navigate("/registration/sportExperience")
                 }}>
                     <textarea placeholder="Goal details..." required></textarea>

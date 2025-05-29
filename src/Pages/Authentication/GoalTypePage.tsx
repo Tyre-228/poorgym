@@ -18,9 +18,8 @@ const GoalTypePage = () => {
                 <form action="POST" method="" onSubmit={() => {
                     event?.preventDefault()
                     const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
-                    const data = { data: choice }
                     
-                    saveAnswer(data, 1)
+                    saveAnswer("goalType", choice)
                     navigate("/registration/goalDescription")
                 }}>
                     <div className="field">

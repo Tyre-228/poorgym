@@ -5,6 +5,11 @@
     margin-top: 80px;
     width: 420px;
 }
+@media (max-width: 450px) {
+    .content {
+        width: 100%;
+    }
+}
 .goBack {
     display: flex;
     justify-content: end;

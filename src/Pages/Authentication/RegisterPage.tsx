@@ -5,6 +5,7 @@ import * as z from "zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import axios from "axios"
 
 const RegisterPage = () => {
     const schema = z.object({
@@ -41,11 +42,24 @@ const RegisterPage = () => {
     
         const onSubmit = async (data: Schema) => {
             const dataToSend = {
-                registerData: data,
-                preRegisterAnswers: JSON.parse(localStorage.getItem("savedAnswers") as string)
+                ...data,
+                ...JSON.parse(localStorage.getItem("savedAnswers") as string)
             }
 
+            // deleting password2 because it's the same as password1
+            delete dataToSend["password2"]
             console.log(dataToSend)
+
+            axios.post("https://poorgym.onrender.com/signup", dataToSend, {
+                headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(res => {
+                if(res.status === 201) {
+                    console.log("logged in")
+                }
+            })
         };
 
     return (

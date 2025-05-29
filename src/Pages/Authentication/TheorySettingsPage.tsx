@@ -17,9 +17,8 @@ const TheorySettingsPage = () => {
                 <form action="POST" onSubmit={() => {
                     event?.preventDefault()
                     const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
-                    const data = { data: choice }
 
-                    saveAnswer(data, 5)
+                    saveAnswer("theoryState", choice)
                     navigate("/registration/injuries")
                 }}>
                     <div className="field">

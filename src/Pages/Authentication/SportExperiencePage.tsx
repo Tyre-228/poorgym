@@ -17,9 +17,8 @@ const SportExperiencePage = () => {
                 <form action="POST" onSubmit={() => {
                     event?.preventDefault()
                     const choice = (document.querySelector("input[name=choice]:checked") as HTMLInputElement).value
-                    const data = { data: choice }
 
-                    saveAnswer(data, 3)
+                    saveAnswer("workoutExperience", choice)
                     navigate("/registration/healthInfo")
                 }}>
                     <div className="field">

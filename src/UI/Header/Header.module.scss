@@ -4,10 +4,24 @@
     justify-content: space-between;
     align-items: center;
 }
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: start;
+    }
+    .header > .logo {
+        margin-bottom: 24px;
+    }
+}
 .logo {
     color: var(--primary-color);
     font-weight: 900;
     font-size: 48px;
+}
+@media(max-width: 720px) {
+    .logo {
+        font-size: 42px;
+    }
 }
 .authentication button {
     padding: 12px 24px;
@@ -16,3 +30,21 @@
 .authentication > *:not(:last-of-type) {
     margin-right: 32px;
 }   
+@media(max-width: 620px) {
+    .authentication {
+        display: flex;
+        flex-direction: column;
+    }
+    .authentication > *:not(:last-of-type) {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+}
+@media(max-width: 480px) {
+    .authentication {
+        flex-direction: row;
+    }
+    .authentication > *:not(:last-of-type) {
+        margin-right: 24px;
+    }
+}

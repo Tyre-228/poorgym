@@ -23,7 +23,10 @@ const HealthInfoPage = () => {
                         height: (document.getElementById("height") as HTMLInputElement).value,
                      }
 
-                    saveAnswer(data, 4)
+                    saveAnswer("gender", data.gender)
+                    saveAnswer("measurementUnits", data.measurementUnits)
+                    saveAnswer("weight", data.weight)
+                    saveAnswer("height", data.height)
                     navigate("/registration/theory")
                 }}>
                     <select name="gender" id="gender">
