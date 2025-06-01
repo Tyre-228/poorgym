@@ -36,7 +36,7 @@ const SideBar = (props: CurrentPageProps) => {
                     </Link>
                 </li>
                 <li className={`${styles.sideBarOption} ${props.currentPage === "5" ? styles.current : ""}`}>
-                    <Link to="/">
+                    <Link to="/accountSettings">
                         <button className={styles.navButton}></button>
                     </Link>
                 </li>

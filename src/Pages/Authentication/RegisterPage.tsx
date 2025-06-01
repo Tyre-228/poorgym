@@ -1,6 +1,5 @@
-import "../../assets/scss/style.scss"
-import "../../assets/scss/forms.scss"
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
+
 import * as z from "zod"
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"

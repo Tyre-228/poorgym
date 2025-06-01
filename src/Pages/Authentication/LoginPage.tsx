@@ -3,8 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useEffect } from "react";
 
-import "../../assets/scss/style.scss"
-import "../../assets/scss/forms.scss"
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
 import axios from "axios";
 

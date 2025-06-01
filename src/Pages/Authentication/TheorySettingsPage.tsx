@@ -1,6 +1,5 @@
-import "../../assets/scss/style.scss"
-import "../../assets/scss/forms.scss"
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
+
 import { saveAnswer } from "../../helpers"
 import { useNavigate } from "react-router"
 

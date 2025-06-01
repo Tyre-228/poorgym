@@ -45,9 +45,9 @@ body {
     background-color: var(--primary-color);
     border-radius: 10px;
     transition: 200ms all;
+    min-width: 140px;
     padding: 8px;
-    width: 140px;
-    font-size: 24px;
+    font-size: 18px;
 }
 .primaryButton:hover {
     background-color: var(--primary-shaded-color);
@@ -57,9 +57,9 @@ body {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     border-radius: 10px;
+    min-width: 140px;
     padding: 8px;
-    width: 140px;
-    font-size: 24px;
+    font-size: 18px;
 }
 .secondaryButton:hover {
     background-color: var(--primary-shaded-color);
