@@ -14,7 +14,7 @@ authenticationRouter.post("/login", async (req, res): Promise<any> => {
     }
 
     if(Object.keys(result).length > 0) {
-        return res.status(422).json(result)
+        return res.status(400).json(result)
     }
 
     return res.status(201).json({ "status": "Success" })

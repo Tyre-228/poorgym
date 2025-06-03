@@ -44,7 +44,7 @@ class AuthenticationService {
             const queryResult: any = (await this.authenticationDAL.getUserPassword(email)).rows
 
             // exit the method if email was not found in the database
-            if(!queryResult) return { error: "User not found" }
+            if(queryResult.length === 0) return { error: "User not found" }
 
             const expectedPasswordHash: string = queryResult[0]["password"].trim()
             const isPasswordFound = bcrypt.compareSync(password, expectedPasswordHash)
