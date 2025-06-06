@@ -5,53 +5,42 @@
     margin-right: auto;
     margin-left: auto;
 }
-.exerciseFilters {
-    width: 100%;
+.interaction {
     display: flex;
-    justify-content: start;
-    margin-bottom: 52px;
+    justify-content: space-between;
+    margin-bottom: 36px;
 }
-.exerciseFilters input {
+.workoutFilters > input {
     width: 260px;
     border: 3px solid var(--border-color);
     background-color: var(--secondary-color);
     border-radius: 5px;
 }
-.exerciseFilters input:not(:last-of-type) {
+.workoutFilters > input:not(:last-of-type) {
     margin-right: 24px;
 }
-.exerciseList {
-    margin-bottom: 160px;
+.workoutList {
+    margin-bottom: 80px;
 }
-.exerciseContainer {
+.workout {
     border: 2px solid var(--border-color);
     border-radius: 15px;
-    padding: 12px;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
-}
-.exerciseContainer:not(:last-of-type) {
+} 
+.workout:not(:last-of-type) {
     margin-bottom: 24px;
-}
-.exerciseInfo {
-    display: flex;
-    justify-content: start; 
-}
-.exerciseImage {
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 24px;
-}
-.exerciseDescription > h2 {
+}   
+.workoutInfo > .workoutTitle {
     font-size: 32px;
     color: var(--primary-color);
     font-weight: 700;
     margin-bottom: 12px;
 }
-.exerciseDescription > p {
+.workoutInfo > p {
     font-size: 24px;
 }
-.viewExerciseButton {
-    font-size: 18px;
-    padding: 8px;
+.workoutInfo > p:not(:last-of-type) {
+    margin-bottom: 6px;
 }

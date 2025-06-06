@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router"
+import axios from "axios";
 import * as z from "zod";
-import { useEffect } from "react";
 
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
-import axios from "axios";
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+
     const schema = z.object({
         email: z.string()
             .nonempty({ message: "Enter an email" })
@@ -19,21 +21,43 @@ const LoginPage = () => {
 
     type Schema = z.infer<typeof schema>;
 
-    const { register, handleSubmit, formState: { errors } } = useForm<Schema>({
+    const { register, handleSubmit, setError, formState: { errors } } = useForm<Schema>({
         resolver: zodResolver(schema)
     });
 
-    useEffect(() => {
-        console.log(errors)
-    }, [errors])
 
     const onSubmit = async (data: Schema) => {
-        console.log("data sent")
-        axios.post("https://poorgym.onrender.com/login", data).then(res => {
-            console.log(res.status)
-            console.log(res.data)
+        axios.post("https://poorgym.onrender.com/login", data)
+        // redirect user to the workout planner page if data has been sent successfuly
+        .then(res => {
+            if(res.status === 201) {
+                navigate("/workoutPlanner")
+            }
+            else {
+                setError("password", {
+                    type: "custom",
+                    message: "Something went wrong. Try again"
+                })
+            }
+        })
+        .catch(error => {
+            const errorMessage = error.response.data.error
+
+            if(errorMessage === "User not found") {
+                setError("email", {
+                    type: "custom",
+                    message: errorMessage
+                })
+            }
+            else {
+                setError("password", {
+                    type: "custom",
+                    message: errorMessage
+                })
+            }
         })
     };
+
     return (
         <div className="page">
             <div className="goBack">

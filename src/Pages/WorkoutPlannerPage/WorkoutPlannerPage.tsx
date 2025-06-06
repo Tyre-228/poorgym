@@ -1,5 +1,6 @@
 import SideBar from "../../UI/SideBar/SideBar"
 import styles from "./WorkoutPlannerPage.module.scss"
+import { NavLink } from "react-router"
 
 const WorkoutPlannerPage = () => {
     return (
@@ -40,7 +41,9 @@ const WorkoutPlannerPage = () => {
                         </div>
                     </li>
                 </ul>
-                <button className={styles.createWorkoutButton + " primaryButton"}>Create a workout</button>
+                <NavLink to="/newWorkout">
+                    <button className={styles.createWorkoutButton + " primaryButton"}>Create a workout</button>
+                </NavLink>
             </div>
             <SideBar currentPage="3" />
         </div>

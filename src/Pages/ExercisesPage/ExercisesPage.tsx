@@ -12,7 +12,7 @@ const ExercisesPage = () => {
                 </div>
                 <ul className={styles.exerciseList}>
                     <li className={styles.exerciseContainer}>
-                        <div className={styles.exerciseContent}>
+                        <div className={styles.exerciseInfo}>
                             <div className={styles.exerciseImage}>
                                 <img src={exerciseImage} alt="" />
                             </div>
@@ -26,7 +26,7 @@ const ExercisesPage = () => {
                         </div>
                     </li>
                     <li className={styles.exerciseContainer}>
-                        <div className={styles.exerciseContent}>
+                        <div className={styles.exerciseInfo}>
                             <div className={styles.exerciseImage}>
                                 <img src={exerciseImage} alt="" />
                             </div>
@@ -40,7 +40,7 @@ const ExercisesPage = () => {
                         </div>
                     </li>
                     <li className={styles.exerciseContainer}>
-                        <div className={styles.exerciseContent}>
+                        <div className={styles.exerciseInfo}>
                             <div className={styles.exerciseImage}>
                                 <img src={exerciseImage} alt="" />
                             </div>
@@ -54,7 +54,7 @@ const ExercisesPage = () => {
                         </div>
                     </li>
                     <li className={styles.exerciseContainer}>
-                        <div className={styles.exerciseContent}>
+                        <div className={styles.exerciseInfo}>
                             <div className={styles.exerciseImage}>
                                 <img src={exerciseImage} alt="" />
                             </div>

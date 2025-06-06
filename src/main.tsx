@@ -22,6 +22,7 @@ import ExercisesPage from './Pages/ExercisesPage/ExercisesPage'
 import AccountSettingsPage from './Pages/AccountSettingsPage/AccountSettingsPage'
 import NewWorkoutForm from './Pages/NewWorkoutForm/NewWorkoutForm'
 import WorkoutEditor from './Pages/WorkoutEditor/WorkoutEditor'
+import PrebuiltWorkoutsPage from './Pages/PrebuiltPlansPage/PrebuiltWorkoutsPage'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -50,6 +51,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path='newWorkout' element={<NewWorkoutForm/>} />
 
         <Route path='workoutEditor' element={<WorkoutEditor/>} />
+
+        <Route path='prebuiltWorkouts' element={<PrebuiltWorkoutsPage/>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
