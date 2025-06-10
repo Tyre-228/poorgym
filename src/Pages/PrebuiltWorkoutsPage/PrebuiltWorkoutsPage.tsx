@@ -1,5 +1,5 @@
 import GoBackButton from "../../UI/GoBackButton/GoBackButton"
-import styles from "./PrebuiltPlansPage.module.scss"
+import styles from "./PrebuilWorkoutsPage.module.scss"
 
 const PrebuiltWorkoutsPage = () => {
     return (

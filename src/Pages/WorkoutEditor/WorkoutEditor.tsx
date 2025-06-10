@@ -5,7 +5,7 @@ const WorkoutEditor = () => {
         <div className="page">
             <div className={styles.content}>
                 <div className={styles.workoutTopbar}>
-                    <h2 className={styles.workoutTitle}>Push</h2>
+                    <h1 className={styles.workoutTitle}>Push</h1>
                     <button className={styles.saveWorkout + " primaryButton"}>Save workout</button>
                 </div>
                 <ul className={styles.exerciseList}>

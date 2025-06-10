@@ -1,8 +1,18 @@
 import styles from "./GoBackButton.module.scss"
 
-const GoBackButton = () => {
+interface SizeProp {
+    width?: number,
+    height?: number
+}
+
+const GoBackButton = (props: SizeProp) => {
+    const style = {
+        width: props.width || "auto",
+        height: props.height || "auto"
+    }
+
     return (
-        <button className={styles.goBackButton +  " primaryButton"} onClick={() => {history.back()}}>Go back</button>
+        <button className={styles.goBackButton +  " primaryButton"} style={style} onClick={() => {history.back()}}>Go back</button>
     )
 }
 

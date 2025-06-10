@@ -22,7 +22,12 @@ import ExercisesPage from './Pages/ExercisesPage/ExercisesPage'
 import AccountSettingsPage from './Pages/AccountSettingsPage/AccountSettingsPage'
 import NewWorkoutForm from './Pages/NewWorkoutForm/NewWorkoutForm'
 import WorkoutEditor from './Pages/WorkoutEditor/WorkoutEditor'
-import PrebuiltWorkoutsPage from './Pages/PrebuiltPlansPage/PrebuiltWorkoutsPage'
+import PrebuiltWorkoutsPage from './Pages/PrebuiltWorkoutsPage/PrebuiltWorkoutsPage'
+import PrebuiltWorkoutViewerPage from './Pages/PrebuiltWorkoutViewerPage/PrebuiltWorkoutViewerPage'
+import WorkoutEditorExercisesPage from './Pages/WorkoutEditorExercisesPage/WorkoutEditorExercisesPage'
+import TheoryPage from './Pages/TheoryPage/TheoryPage'
+import WorkoutPage from './Pages/WorkoutPage/WorkoutPage'
+import ExercisePage from './Pages/ExercisePage/ExercisePage'
 
 
 createRoot(document.getElementById('root')!).render(
@@ -46,6 +51,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='workoutPlanner' element={<WorkoutPlannerPage/>} />
         <Route path='exercises' element={<ExercisesPage/>} />
         <Route path='accountSettings' element={<AccountSettingsPage/>} />
+        <Route path='theoryPage' element={<TheoryPage/>} />
 
         {/* NewWorkoutForm */}
         <Route path='newWorkout' element={<NewWorkoutForm/>} />
@@ -53,6 +59,14 @@ createRoot(document.getElementById('root')!).render(
         <Route path='workoutEditor' element={<WorkoutEditor/>} />
 
         <Route path='prebuiltWorkouts' element={<PrebuiltWorkoutsPage/>} />
+
+        <Route path='prebuiltWorkoutViewer' element={<PrebuiltWorkoutViewerPage/>}/>
+
+        <Route path='workoutEditorExercises' element={<WorkoutEditorExercisesPage/>}/>
+
+        <Route path='workout' element={<WorkoutPage/>} />
+
+        <Route path='exercise' element={<ExercisePage/>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -16,12 +16,12 @@ const SideBar = (props: CurrentPageProps) => {
         <div className={styles.sideBar}>
             <ul className={styles.sideBarOptions}>
                 <li className={`${styles.sideBarOption} ${props.currentPage === "1" ? styles.current : ""}`}>
-                    <Link to="/">
+                    <Link to="/theoryPage">
                         <button className={styles.navButton}></button>
                     </Link>
                 </li>
                 <li className={`${styles.sideBarOption} ${props.currentPage === "2" ? styles.current : ""}`}>
-                    <Link to="/">
+                    <Link to="/workoutHistory">
                         <button className={styles.navButton}></button>
                     </Link>
                 </li>

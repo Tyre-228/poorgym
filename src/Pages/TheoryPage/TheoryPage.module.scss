@@ -1,0 +1,49 @@
+.content {
+    max-width: 1400px;
+    width: 100%;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 32px;
+}
+.theoryList {
+    margin-bottom: 150px;
+}
+.theory {
+    flex-direction: column;
+}
+.theory:not(:last-of-type) {
+    margin-bottom: 32px;
+}
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.theoryTitle {
+    color: var(--primary-color);
+    font-size: 36px;
+}
+.theoryToggleButton {
+    width: fit-content;
+}
+@media(max-width: 620px) {
+    .topBar {
+        flex-direction: column;
+    }
+    .theoryTitle {
+        margin-bottom: 12px;
+    }
+}
+.theoryArticle {
+    margin-bottom: 36px;
+}
+.video {
+    width: 100%;
+    height: calc(10rem + 30vw);
+}
+@media(max-width: 620px) {
+    .video {
+        height: calc(5rem + 30vw);
+    }
+}

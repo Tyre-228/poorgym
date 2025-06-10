@@ -1,0 +1,86 @@
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--secondary-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 800px;
+    border: 2px solid var(--border-color);
+}
+@media(max-width: 480px) {
+    .contetn {
+        padding: 12px;
+        width: 100%;
+    }
+}
+.topBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+.title {
+    font-size: 32px;
+    text-wrap: nowrap;
+    margin-right: 48px;
+}
+.closeButton {
+    width: 30px;
+    height: 30px;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.exerciseDescription {
+    height: fit-content;
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 36px;
+    column-gap: 36px;
+}
+.exerciseDescription div:last-of-type {
+    grid-column: 1/3;
+}
+.exerciseDescription h2 {
+    margin-bottom: 12px;
+}
+.exerciseDescription p {
+    font-size: 20px;
+}
+.exerciseDescription p:not(:last-child) {
+    margin-bottom: 6px;
+}
+.exerciseImage {
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 36px;
+}
+@media(max-width: 860px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content > * {
+        width: 100%;
+    }
+    .exerciseDescription {
+        margin-bottom: 32px;
+    }
+}
+.instructionTitle {
+    margin-bottom: 24px;
+}
+.instructionList > li:not(:last-of-type) {
+    margin-bottom: 12px;
+}

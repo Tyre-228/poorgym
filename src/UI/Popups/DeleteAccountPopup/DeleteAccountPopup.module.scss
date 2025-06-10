@@ -1,0 +1,19 @@
+.popup {
+    background-color: var(--secondary-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 500px;
+    height: 300px;
+}
+.popupTitle {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 36px;
+}
+.popupInteraction > button:not(:last-of-type) {
+    margin-right: 36px;
+}
