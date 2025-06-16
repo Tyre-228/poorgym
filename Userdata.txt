@@ -1,0 +1,26 @@
+Username	Plaintext Password
+ironpilot	IronFit2025!
+zenlift	ZenFlow@88
+runwild23	RunRun2024
+fitnsteady	StayFit#1
+bulkbeast	BulkNow777
+moveagain	FreshStart!23
+steadygains	PowerModeOn
+flexminded	StretchLife99
+grindpulse	NoPainGain!
+lightstepper	LightStep2025
+
+
+
+
+INSERT INTO Users (Username, Email, DateOfBirth, Password, GoalType, Goal, TheoryState, BeginnerCourseCounter, LifestyleActivity, Gender, MeasurementUnits, Weight, Height) VALUES
+('ironpilot', 'ironpilot@example.com', '1994-04-12', '$2b$12$oE4S15PkKbGBY.iH7UTZe.d6bJTwKVQ/PLg/VyJr7e3d745vkzmYu', 'Muscle growth', 'Build muscle and reach 85kg lean mass', 'Beginner course', 0, 'Beginner', 'male', 'metric', 78, 180),
+('zenlift', 'zenlift@example.com', '1988-06-23', '$2b$12$khvkoyDgjNR.x8Chgq.hXuFFK4Ucj.hUofZqUcIhVLl7azt8OQJEO', 'Healthy lifestyle', 'Maintain weight and reduce stress', 'Active', 0, 'Active lifestyle/job', 'female', 'imperial', 140, 65),
+('runwild23', 'runwild23@example.com', '1999-09-10', '$2b$12$L4cRCVzM.2R03OHEsWCAXOWCvi23jKpo765pFzMxs3obB7VFfgi4K', 'Weight loss', 'Lose 12kg and improve cardio', 'Not active', 0, 'Not active', 'male', 'metric', 96, 175),
+('fitnsteady', 'fitnsteady@example.com', '1992-02-05', '$2b$12$TdKkDYKISSGKe81Ry6Fxp.ToJBwx0CCWXp28I6dsczGM08Gd.WCrO', 'Healthy lifestyle', 'Stay active and healthy during remote work', 'Beginner course', 0, 'Beginner in any sport', 'female', 'metric', 73, 168),
+('bulkbeast', 'bulkbeast@example.com', '1990-11-15', '$2b$12$vnbziu9j.7F9ARkO3YCTSegdygeYv6w/OtR92hH881JwwJVx1Uqim', 'Muscle growth', 'Gain 10kg of muscle', 'Not active', 0, 'Not active', 'male', 'imperial', 165, 70),
+('moveagain', 'moveagain@example.com', '2001-01-01', '$2b$12$xWyM18tpW.kmYC.KEH9LvuzoHilf.gX2DA86YwUTH.jifcRrTajS6', 'Weight loss', 'Drop 15kg and regain mobility', 'Beginner course', 0, 'Beginner', 'female', 'metric', 104, 167),
+('steadygains', 'steadygains@example.com', '1995-03-18', '$2b$12$riDzaxdLfIwehV797qXWUuEs51w3drMpo2A3KazWUt92eZUH3mvBK', 'Muscle growth', 'Improve strength and posture', 'Active', 0, 'Experienced in any sport', 'male', 'metric', 84, 182),
+('flexminded', 'flexminded@example.com', '1997-07-29', '$2b$12$fSJX99pvDJ9747cHWTKfTOgKRZwwu30e8IMiMfivG2cWBLRVMB.7C', 'Healthy lifestyle', 'Balance nutrition and daily fitness', 'Not active', 0, 'Active lifestyle/job', 'female', 'imperial', 130, 64),
+('grindpulse', 'grindpulse@example.com', '1985-10-30', '$2b$12$usCg.t6JDGusSeAOtsOWiudwmGd2nCygbvAK6SxaQNv976yMqeqgq', 'Muscle growth', 'Compete in local amateur lifting meet', 'Beginner course', 0, 'Beginner in any sport', 'male', 'metric', 90, 178),
+('lightstepper', 'lightstepper@example.com', '2000-05-21', '$2b$12$vidc7/Vo.gXmWyufLWgb/.LnVF2NzwG1UacFR4wyzT4/fUtquKAEe', 'Weight loss', 'Lose 8kg and run a 10K', 'Active', 0, 'Experienced in any sport', 'female', 'metric', 69, 166);

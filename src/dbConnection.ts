@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const connection = new Client({
+const dbConnection = new Client({
     user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
 	host: process.env.DB_HOST,
@@ -12,7 +12,7 @@ const connection = new Client({
 	ssl: true,
 })
 
-connection
+dbConnection
 	.connect()
 	.then(() => {
 		console.log('Connected to PostgreSQL database');
@@ -21,5 +21,4 @@ connection
 		console.error('Error connecting to PostgreSQL database', err);
 	});
 
-
-export default connection
+export default dbConnection

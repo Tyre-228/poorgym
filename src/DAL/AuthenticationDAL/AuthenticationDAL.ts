@@ -7,18 +7,22 @@ class AuthenticationDAL {
         this.connection = connection
     }
 
-    createUser(username: string, email: string, password: string, dob: string, goalType: string, goalDesctiption: string, theoryState: string, workoutExperience: string, gender: string, measurementUnits: string, weight: number, height: number) {
-        this.connection.query(`INSERT INTO Users
-            (Username, Email, Password, DateOfBirth, GoalType, Goal, TheoryState, WorkoutExperience, Gender, MeasurementUnits, Weight, Height, BeginnerCourseCounter) 
-            VALUES('${username}', '${email}', '${password}', '${dob}', '${goalType}', '${goalDesctiption}', '${theoryState}', '${workoutExperience}', '${gender}', '${measurementUnits}', '${weight}', '${height}', '${0}');`)
+    createUser(username: string, email: string, password: string, dob: string, goalType: string, goalDesctiption: string, theoryState: string, lifestyleActivity: string, gender: string, measurementUnits: string, weight: number, height: number) {
+        return this.connection.query(`INSERT INTO Users
+            (Username, Email, Password, DateOfBirth, GoalType, Goal, TheoryState, LifestyleActivity, Gender, MeasurementUnits, Weight, Height, BeginnerCourseCounter) 
+            VALUES('${username}', '${email}', '${password}', '${dob}', '${goalType}', '${goalDesctiption}', '${theoryState}', '${lifestyleActivity}', '${gender}', '${measurementUnits}', '${weight}', '${height}', '${0}');`)
     }
 
     getUserPassword(email: string) {
         return this.connection.query(`SELECT password FROM Users WHERE email='${email}';`)
     }
 
-    getUserId(email: string, password: string) {
-        return this.connection.query(`SELECT id FROM Users WHERE email='${email}' AND password='${password}'`)
+    getUserId(email: string) {
+        return this.connection.query(`SELECT id FROM Users WHERE email='${email}';`)
+    }
+
+    getUser(id: number) {
+        return this.connection.query(`SELECT * FROM User WHERE id='${id}';`)
     }
 }
 
