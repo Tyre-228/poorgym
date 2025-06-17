@@ -19,6 +19,7 @@ authenticationRouter.post("/login", async (req, res): Promise<any> => {
 
     const userId = await AuthenticationService.getUserId(req.body.email)
     req.session.userId = userId
+    res.cookie("userId", userId)
 
     return res.status(201).json({ "status": "Success" })
 })
@@ -34,14 +35,16 @@ authenticationRouter.post("/signup", async (req, res): Promise<any> => {
     }
     // if no errors
     const userId = await AuthenticationService.getUserId(req.body.email)
+
     req.session.userId = userId
+    res.cookie("userId", userId)
 
     return res.status(201).json({ "status": "Success" })
 })
 
 authenticationRouter.put("/account", async (req, res): Promise<any> => {
     try {
-        const id = req.session.userId
+        const id = req.session.userId as number
         const data = req.body
 
         await AuthenticationService.updateUser(id, data)
@@ -58,6 +61,8 @@ authenticationRouter.post("/logout", async (req, res): Promise<any> => {
         if (err) {
             return res.status(500).send({ "message": "Failed to destroy session" });
         }
+        
+        res.clearCookie("userId")
         res.status(200).send({ "message": "Session destroyed" });
     });
 })
