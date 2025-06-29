@@ -2,7 +2,8 @@ import bcrypt from "bcryptjs"
 import session from "express-session"
 import AuthenticationDAL from "../../DAL/AuthenticationDAL/AuthenticationDAL";
 import dbConnection from "../../dbConnection";
-import { LoginDataType, RegisterDataType } from "./AuthenticationServiceTypes";
+import { LoginDataType, UserDataType } from "./AuthenticationServiceTypes";
+import { encodePassword } from "../../helpers";
 
 
 class AuthenticationService {
@@ -12,8 +13,8 @@ class AuthenticationService {
         this.authenticationDAL = new AuthenticationDAL(dbConnection)
     }
 
-    async createUser(data: RegisterDataType) {
-        const hashedPassword = this.encodePassword(data.password)
+    public async createUser(data: UserDataType) {
+        const hashedPassword = encodePassword(data.password)
 
         try {
             let result = await this.authenticationDAL.createUser(
@@ -30,20 +31,21 @@ class AuthenticationService {
                 Number(data.weight),
                 Number(data.height)
             )
-            console.log("Yopta")
-            console.log(result)
         }
         catch(err) {
-            throw Error(err as string)
+            console.log(Error(err as string))
+            return { error: "Server error", status: 500 }
         }
+
+        return {}
     }
 
-    async getUserId(email: string) {
+    public async getUserId(email: string) {
         const queryResult: any = (await this.authenticationDAL.getUserId(email)).rows
         return queryResult[0]
     }
 
-    async loginUser(data: LoginDataType) {
+    public async loginUser(data: LoginDataType) {
         const {email, password} = data
 
         try {
@@ -51,30 +53,48 @@ class AuthenticationService {
             const queryResult: any = (await this.authenticationDAL.getUserPassword(email)).rows
 
             // return error if email was not found in the database
-            if(queryResult.length === 0) return { error: "User not found" }
+            if(queryResult.length === 0) return { error: "User not found", status: 400 }
 
             const expectedPasswordHash: string = queryResult[0]["password"].trim()
             const isPasswordFound = bcrypt.compareSync(password, expectedPasswordHash)
             
             // return error if password wasn't found in the db
-            if(isPasswordFound === false) return { error: "Password is incorrect" }
+            if(isPasswordFound === false) return { error: "Password is incorrect", status: 400 }
             
             return {}
         }
         catch(err) {
-            throw Error(err as string)
+            console.log(Error(err as string))
+            return { error: "Server error", status: 500 }
         }
     }
 
-    async updateUser(id: number, data: object) {
+    public async updateUser(id: number, data: object) {
         console.log((await this.authenticationDAL.getUser(1)).rows)
     }
 
-    private encodePassword(password: string) {
-        const salt = bcrypt.genSaltSync(10)
-        const hash = bcrypt.hashSync(password, salt)
+    public async getUserDetails(id: number) {
+        try {
+            return (await this.authenticationDAL.getUser(id)).rows[0]
+        }
+        catch(err) {
+            console.log(Error(err as string))
+            return { error: "Server error", status: 500 }
+        }
+    }
 
-        return hash
+    public async deleteUser(userId: number, email: string, password: string) {
+        try {
+            const userData: UserDataType = await this.getUserDetails(userId)
+
+            if(userData["email"] === email && bcrypt.compareSync(password, userData["password"].trim())) {
+                this.authenticationDAL.deleteUser(userId)
+            }
+        }
+        catch(err) {
+            console.log(Error(err as string))
+            return { error: "Server error", status: 500 }
+        }
     }
 }
 

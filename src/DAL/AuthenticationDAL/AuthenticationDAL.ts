@@ -22,7 +22,11 @@ class AuthenticationDAL {
     }
 
     getUser(id: number) {
-        return this.connection.query(`SELECT * FROM User WHERE id='${id}';`)
+        return this.connection.query(`SELECT * FROM Users WHERE id='${id}';`)
+    }
+
+    deleteUser(id: number) {
+        return this.connection.query(`DELETE FROM Users WHERE id='${id}'`)
     }
 }
 
