@@ -47,62 +47,69 @@ class AuthenticationService {
 
     public async loginUser(data: LoginDataType) {
         const { email, password } = data
+        let queryResult
 
         try {
             // TO DO: change type any to a meaningful type
-            const queryResult: any = (await this.authenticationDAL.getUserPassword(email)).rows
-
-            // return error if email was not found in the database
-            if(queryResult.length === 0) return { error: "User not found", status: 400 }
-
-            const expectedPasswordHash: string = queryResult[0]["password"].trim()
-            const isPasswordFound = bcrypt.compareSync(password, expectedPasswordHash)
-            
-            // return error if password wasn't found in the db
-            if(isPasswordFound === false) return { error: "Password is incorrect", status: 400 }
-            
-            return {}
+            queryResult = (await this.authenticationDAL.getUserPassword(email)).rows
         }
         catch(err) {
             console.log(Error(err as string))
             return { error: "Server error", status: 500 }
         }
+
+        // return error if email was not found in the database
+        if(queryResult.length === 0) return { error: "User not found", status: 400 }
+
+        const expectedPasswordHash: string = queryResult[0]["password"].trim()
+        const isPasswordFound = bcrypt.compareSync(password, expectedPasswordHash)
+        
+        // return error if password wasn't found in the db
+        if(isPasswordFound === false) return { error: "Password is incorrect", status: 400 }
+        
+        return {}
     }
 
+    // TO DO: finish the method
     public async updateUser(id: number, data: object) {
         console.log((await this.authenticationDAL.getUser(1)).rows)
     }
 
     // TO DO: test this method
     public async deleteUser(userId: number, email: string, password: string) {
+        let userData: UserDataType
         try {
-            const userData: UserDataType = (await this.authenticationDAL.getUser(userId)).rows[0]
-
-            if(userData) {
-                if(userData["email"] === email && bcrypt.compareSync(password, userData["password"].trim())) {
-                    this.authenticationDAL.deleteUser(userId)
-
-                    return {}
-                }
-            }
-            return { error: "Invalid data", status: 400 }
+            userData = (await this.authenticationDAL.getUser(userId)).rows[0]
         }
         catch(err) {
             console.log(Error(err as string))
             return { error: "Server error", status: 500 }
         }
+
+        if(!userData) {
+            return { error: "Invalid user id", status: 400 }
+        }
+
+        if(userData["email"] !== email || !bcrypt.compareSync(password, userData["password"].trim())) {
+            return { error: "Invalid data", status: 400 }
+        }
+
+        this.authenticationDAL.deleteUser(userId)
+        return {}
+        
     }
 
     public async checkForUser(userId: number) {
+        let userData
         try {
-            const userData = (await this.authenticationDAL.getUser(userId)).rows[0]
-
-            return userData !== undefined ? true : false
+            userData = (await this.authenticationDAL.getUser(userId)).rows[0]
         }
         catch(err) {
             console.log(Error(err as string))
             return { error: "Server error", status: 500 }
         }
+
+        return userData !== undefined ? true : false
     }
 }
 
