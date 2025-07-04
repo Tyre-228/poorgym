@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs"
 import session from "express-session"
-import AuthenticationDAL from "../../DAL/AuthenticationDAL/AuthenticationDAL";
+import AuthenticationDAL from "../../DAL/AuthenticationDAL";
 import dbConnection from "../../dbConnection";
 import { LoginDataType, UserDataType } from "./AuthenticationServiceTypes";
 import { encodePassword } from "../../helpers";
@@ -17,7 +17,7 @@ class AuthenticationService {
         const hashedPassword = encodePassword(data.password)
 
         try {
-            let result = await this.authenticationDAL.createUser(
+            await this.authenticationDAL.createUser(
                 data.username,
                 data.email,
                 hashedPassword,
@@ -46,7 +46,7 @@ class AuthenticationService {
     }
 
     public async loginUser(data: LoginDataType) {
-        const {email, password} = data
+        const { email, password } = data
 
         try {
             // TO DO: change type any to a meaningful type
@@ -73,9 +73,19 @@ class AuthenticationService {
         console.log((await this.authenticationDAL.getUser(1)).rows)
     }
 
-    public async getUserDetails(id: number) {
+    // TO DO: test this method
+    public async deleteUser(userId: number, email: string, password: string) {
         try {
-            return (await this.authenticationDAL.getUser(id)).rows[0]
+            const userData: UserDataType = (await this.authenticationDAL.getUser(userId)).rows[0]
+
+            if(userData) {
+                if(userData["email"] === email && bcrypt.compareSync(password, userData["password"].trim())) {
+                    this.authenticationDAL.deleteUser(userId)
+
+                    return {}
+                }
+            }
+            return { error: "Invalid data", status: 400 }
         }
         catch(err) {
             console.log(Error(err as string))
@@ -83,13 +93,11 @@ class AuthenticationService {
         }
     }
 
-    public async deleteUser(userId: number, email: string, password: string) {
+    public async checkForUser(userId: number) {
         try {
-            const userData: UserDataType = await this.getUserDetails(userId)
+            const userData = (await this.authenticationDAL.getUser(userId)).rows[0]
 
-            if(userData["email"] === email && bcrypt.compareSync(password, userData["password"].trim())) {
-                this.authenticationDAL.deleteUser(userId)
-            }
+            return userData !== undefined ? true : false
         }
         catch(err) {
             console.log(Error(err as string))

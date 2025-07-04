@@ -6,17 +6,17 @@ const authenticationRouter = Router()
 
 
 authenticationRouter.post("/login", async (req, res): Promise<any> => {
-        let { error, status} = await AuthenticationService.loginUser(req.body)
+    let { error, status} = await AuthenticationService.loginUser(req.body)
 
-        if(error) {
-            return res.status(status as number).json({ "error": error })
-        }
+    if(error) {
+        return res.status(status as number).json({ "error": error })
+    }
 
-        const userId = await AuthenticationService.getUserId(req.body.email)
-        req.session.userId = userId
-        res.cookie("userId", userId)
+    const userId = await AuthenticationService.getUserId(req.body.email)
+    req.session.userId = userId
+    res.cookie("userId", userId)
 
-        return res.status(201).json({ "status": "Success" })
+    return res.status(201).json({ "status": "Success" })
 })
 
 
@@ -37,19 +37,11 @@ authenticationRouter.post("/signup", async (req, res): Promise<any> => {
 })
 
 
-// update account data
 authenticationRouter.patch("/account", async (req, res): Promise<any> => {
-    try {
-        const id = req.session.userId as number
-        const data = req.body
+    const id = req.session.userId as number
+    const data = req.body
 
-        await AuthenticationService.updateUser(id, data)
-    }
-    catch(err) {
-        return res.status(500).json({ "status": "Server error" })
-    }
-
-
+    await AuthenticationService.updateUser(id, data)
 })
 
 
@@ -64,23 +56,27 @@ authenticationRouter.post("/logout", async (req, res): Promise<any> => {
     });
 })
 
-
 authenticationRouter.delete("/account", async (req, res): Promise<any> => {
-    if(req.headers.cookie?.includes("userId")) {
-        const userId = parseUserIdCookie(req.headers.cookie)
-        AuthenticationService.deleteUser(userId, req.body.email, req.body.password)
-
-        // req.session.destroy(err => {
-        //     if (err) {
-        //         return res.status(500).json({ "error": "Failed to destroy session" });
-        //     }
-
-        //     res.clearCookie("userId")
-        // })
-
-        return res.status(201).json({ "message": "User deleted" })
+    if(!req.headers.cookie?.includes("userId")) {
+        return res.status(403).json({ "message": "Cookie is missing" })
     }
-    res.status(403).json({ "message": "Cookie is missing" })
+    const userId = parseUserIdCookie(req.headers.cookie)
+    // TO DO: change error variable to an object
+    const error = await (AuthenticationService).deleteUser(userId, req.body.email, req.body.password)
+
+    if(error) {
+        return res.status(error.status as number).json({ "message": error.error })
+    }
+
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).json({ "error": "Failed to destroy session" });
+        }
+
+        res.clearCookie("userId")
+    })
+
+    return res.status(201).json({ "message": "User deleted" })
 }) 
 
 export default authenticationRouter
