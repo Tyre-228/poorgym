@@ -23,7 +23,9 @@
   "homepage": "https://github.com/Tyre-228/poorgym#readme",
   "description": "",
   "dependencies": {
+    "@types/axios": "^0.9.36",
     "@types/ioredis": "^4.28.10",
+    "axios": "^1.10.0",
     "bcryptjs": "^3.0.2",
     "connect-redis": "^8.1.0",
     "cors": "^2.8.5",

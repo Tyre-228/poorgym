@@ -19,6 +19,10 @@ class WorkoutService {
             return { error: "Server error", status: 500 }
         }
     }
+
+    public async addExercise() {
+        
+    }
 }
 
 

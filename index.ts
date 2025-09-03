@@ -2,12 +2,12 @@ import express, { urlencoded } from 'express'
 import dotenv from 'dotenv'
 import IORedis from 'ioredis'
 import RedisStore from "connect-redis"
-import authenticationRouter from './src/routes/AuthenticationRouter'
 import cors from "cors"
 import session from "express-session"
 
-import redisConnection from './src/redisConnection'
+import authenticationRouter from './src/routes/AuthenticationRouter'
 import workoutPlanRouter from './src/routes/WorkoutPlanRouter'
+import exerciseRouter from './src/routes/ExerciseRouter'
 
 
 declare module "express-session" {
@@ -35,6 +35,7 @@ app.use(session({
 app.use(cors())
 app.use(authenticationRouter)
 app.use(workoutPlanRouter)
+app.use(exerciseRouter)
 
 
 app.listen(process.env.PORT, async () => {

@@ -6,7 +6,7 @@ const authenticationRouter = Router()
 
 
 authenticationRouter.post("/login", async (req, res): Promise<any> => {
-    let { error, status} = await AuthenticationService.loginUser(req.body)
+    let { error, status} = await AuthenticationService.loginUser(req.body.email, req.body.password)
 
     if(error) {
         return res.status(status as number).json({ "error": error })

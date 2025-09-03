@@ -45,12 +45,10 @@ class AuthenticationService {
         return queryResult[0]
     }
 
-    public async loginUser(data: LoginDataType) {
-        const { email, password } = data
+    public async loginUser(email: string, password: string) {
         let queryResult
 
         try {
-            // TO DO: change type any to a meaningful type
             queryResult = (await this.authenticationDAL.getUserPassword(email)).rows
         }
         catch(err) {

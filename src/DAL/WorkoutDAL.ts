@@ -8,7 +8,6 @@ class WorkoutDAL {
     }
 
     addWorkout(userId: number, workoutName: string, day: string, muscles: string) {
-        console.log("DB layer")
         return this.connection.query(`INSERT INTO WorkoutPlans(UserId, Name, Day, Muscles) VALUES('${userId}', '${workoutName}', '${day}', '${muscles}');`)
     }
 }
